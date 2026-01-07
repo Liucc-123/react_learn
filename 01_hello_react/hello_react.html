@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello, react</title>
+</head>
+<body>
+    <!--准备一个容器-->
+    <div id="test"></div>
+
+    <!--引入react核心库-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" ></script>
+    <!--引入react-dom，用于支持react操作dom-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!--引入babel，用于将tsx转换为ts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" ></script>
+
+    <script type="text/babel"> /* 注意此处一定要写babel */
+        // 1、创建虚拟dom
+        const VDOM = <h1>Hello React</h1>  // 注意，此处一定不要加引号，因为就不是字符串
+        // 2、渲染虚拟dom
+        ReactDOM.render(VDOM, document.getElementById('test'))
+    </script>
+</body>
+</html>

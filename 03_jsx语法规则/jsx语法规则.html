@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03_jsx语法规则</title>
+    <style>
+        .title {
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <!--准备一个容器-->
+    <div id="test"></div>
+
+    <!--引入react核心库-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <!--引入react-dom，用于支持react操作dom-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <!--引入babel，用于将tsx转换为ts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <script type="text/babel"> /* 注意此处一定要写babel */
+
+    // 定义变量
+    const name = "Tiga"
+
+    // 1、创建虚拟dom
+    const VDOM = (
+        <div>
+            <h1 className="title" id="test">
+                <span style={{color: "yellow"}}>Hello {name}</span>
+            </h1>
+            <h2 className="title" id="test2">
+                <span style={{color: "yellow", fontSize: 101}}>Hello {name}</span>
+            </h2>
+            <input  type="text" />
+            <Good>123</Good>
+        </div>
+    )
+    // 2、渲染虚拟dom
+    ReactDOM.render(VDOM, document.getElementById('test'))
+
+    /**
+     * jsx的语法规则：
+     *  1. 定义虚拟dom时，不要用引号
+     *  2. 标签中使用js表达式，必须使用{}包裹使用
+     *  3. 样式的类名不要用class关键字，而是className
+     *  4. 标签内联样式，必须使用style={{}}的形式去写，字体大小使用fontSize驼峰式，而不是font-size
+     *  5. 只有一个根标签，否则会直接报错：Uncaught SyntaxError: Inline Babel script: Adjacent JSX elements must be wrapped in an enclosing tag
+     *  6. 标签必须闭合
+     *  7. 标签首字母
+     *      1）如果是小写开头，那么babel在将jsx翻译为js的时候，寻找有没有同名的标签，如果有，则创建对应的标签
+     *      2）如果是大写开头，react会渲染对应的组件，如果该组件未定义，则报错
+     */
+    </script>
+
+
+</body>
+</html>

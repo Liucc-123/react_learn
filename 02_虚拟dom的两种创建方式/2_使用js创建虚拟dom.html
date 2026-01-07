@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2_使用js创建虚拟dom</title>
+</head>
+<body>
+    <!--准备一个容器-->
+    <div id="test"></div>
+
+    <!--引入react核心库-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" ></script>
+    <!--引入react-dom，用于支持react操作dom-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
+    <script type="text/javascript">
+    // 1、创建虚拟dom
+    const VDOM = React.createElement("h1", {id: "test"}, React.createElement("span", {}, "hello React"))  // 需要嵌套，所以js语法没有jsx语法好用
+    // 2、渲染虚拟dom
+    ReactDOM.render(VDOM, document.getElementById('test'))
+    </script>
+</body>
+</html>
